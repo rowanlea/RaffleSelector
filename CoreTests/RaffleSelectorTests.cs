@@ -18,8 +18,8 @@ namespace CoreTests
             HashSet<string> drawnEmails = raffleSelector.DrawEmails(listOfEmails, numberToDraw);
 
             // Assert
-            drawnEmails.Count.Should().Be(3);
-            drawnEmails.Should().Contain("Nacho");
+            drawnEmails.Count.Should().Be(numberToDraw);
+            listOfEmails.Should().Contain(drawnEmails);
 
         }
 
