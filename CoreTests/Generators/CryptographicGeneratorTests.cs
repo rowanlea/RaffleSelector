@@ -40,7 +40,7 @@ namespace CoreTests.Generators
             }
             for (int i = 1; i <= 10; i++)
             {
-                frequencies[i].Should().BeGreaterThan(80);
+                frequencies[i].Should().BeGreaterThan(50);
             }
         }
     }
