@@ -1,7 +1,7 @@
 ﻿using Core.Utils;
 using FluentAssertions;
 
-namespace CoreTests
+namespace CoreTests.Utils
 {
     internal class ListUtilsTests
     {
@@ -12,7 +12,7 @@ namespace CoreTests
             var listNames = new List<string> { "Rowan", "Nacho", "Kevin" };
 
             // Act
-            var setNames = ListUtils.ConvertListToSet(listNames);
+            var setNames = ListUtils.MakeListUnique(listNames);
 
             // Assert
             setNames.Should().Contain(listNames);
@@ -25,7 +25,7 @@ namespace CoreTests
             var listNames = new List<string> { "Rowan", "Rowan", "Kevin" };
 
             // Act
-            var setNames = ListUtils.ConvertListToSet(listNames);
+            var setNames = ListUtils.MakeListUnique(listNames);
 
             // Assert
             setNames.Count().Should().Be(2);

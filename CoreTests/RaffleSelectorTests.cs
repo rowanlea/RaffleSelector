@@ -1,5 +1,7 @@
 using Core;
+using Core.Generators;
 using FluentAssertions;
+using NSubstitute;
 
 namespace CoreTests
 {
@@ -9,7 +11,8 @@ namespace CoreTests
         public void AcceptanceTest()
         {
             // Arrange
-            RaffleSelector raffleSelector = new();
+            IRandomNumberGenerator randomNumberGenerator = Substitute.For<IRandomNumberGenerator>();
+            RaffleSelector raffleSelector = new(randomNumberGenerator);
 
             IEnumerable<string> listOfEmails = new List<string>() { "Nacho", "Rowan", "Bob", "Trish", "Roy" };
             int numberToDraw = 3;
@@ -20,7 +23,6 @@ namespace CoreTests
             // Assert
             drawnEmails.Count.Should().Be(numberToDraw);
             listOfEmails.Should().Contain(drawnEmails);
-
         }
 
         //[Test]
