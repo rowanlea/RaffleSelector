@@ -11,7 +11,7 @@ namespace CoreTests
         public void AcceptanceTest()
         {
             // Arrange
-            IRandomNumberGenerator randomNumberGenerator = Substitute.For<IRandomNumberGenerator>();
+            INumberGenerator randomNumberGenerator = Substitute.For<INumberGenerator>();
             RaffleSelector raffleSelector = new(randomNumberGenerator);
 
             IEnumerable<string> listOfEmails = new List<string>() { "Nacho", "Rowan", "Bob", "Trish", "Roy" };

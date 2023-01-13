@@ -5,14 +5,14 @@ namespace Core
 {
     public class RaffleSelector
     {
-        private readonly IRandomNumberGenerator _randomNumberGenerator;
+        private readonly INumberGenerator _randomNumberGenerator;
 
         public RaffleSelector() 
         {
-            _randomNumberGenerator = new RandomNumberGenerator();
+            _randomNumberGenerator = new UniqueNumberGenerator();
         }
 
-        internal RaffleSelector(IRandomNumberGenerator randomNumberGenerator)
+        internal RaffleSelector(INumberGenerator randomNumberGenerator)
         {
             _randomNumberGenerator = randomNumberGenerator;
         }
@@ -20,7 +20,7 @@ namespace Core
         public HashSet<string> DrawEmails(IEnumerable<string> listOfEmails, int numberToDraw)
         {
             HashSet<string> uniqueEmails = ListUtils.MakeListUnique(listOfEmails);
-            var selectedNumbers = _randomNumberGenerator.GenerateNumberOfUniquePositions(listOfEmails.Count(), numberToDraw);
+            var selectedNumbers = _randomNumberGenerator.GenerateRandomNumbers(listOfEmails.Count(), numberToDraw);
             return uniqueEmails;
         }
 

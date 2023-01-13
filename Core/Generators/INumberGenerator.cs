@@ -3,8 +3,8 @@
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace Core.Generators
 {
-    internal interface IRandomNumberGenerator
+    internal interface INumberGenerator
     {
-        int[] GenerateNumberOfUniquePositions(int maximum, int numberToGenerate);
+        int[] GenerateRandomNumbers(int maximum, int numberToGenerate);
     }
 }
